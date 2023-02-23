@@ -1,5 +1,4 @@
-import br.com.dio.challenge.domain.Mentoria;
-import kotlincodes.Curso;
+import br.com.dio.challenge.domain.*;
 
 import java.time.LocalDate;
 
@@ -15,6 +14,21 @@ public class Main {
         curso2.setDescricao("descrição curso js");
         curso2.setCargaHoraria(4);
 
+        //Polimorfismo - tudo que tem dentro de conteúdo,
+        // tem dentro de curso, mas nem td q tem dentro de curso, tem dentro de conteudo
+        Conteudo conteudo1 = new Curso();
+        conteudo1.setTitulo("conteudo 1");
+        conteudo1.setDescricao("polimorfismo a partir da classe curso");
+        conteudo1.calcularXp();
+        System.out.println("polimorfismo 1 (Conteudo = Curso: " + conteudo1);
+
+        Conteudo conteudo2 = new Mentoria();
+        conteudo2.setTitulo("conteudo 1");
+        conteudo2.setDescricao("polimorfismo a partir da classe curso");
+        conteudo2.calcularXp();
+        System.out.println("polimorfismo 2 (Conteudo = Mentoria: " + conteudo2);
+
+
         System.out.println(curso1);
         System.out.println(curso2);
 
@@ -25,12 +39,15 @@ public class Main {
 
         System.out.println(mentoria);
 
-        /*Bootcamp bootcamp = new Bootcamp();
-        bootcamp.setNome("Bootcamp Java Developer");
-        bootcamp.setDescricao("Descrição Bootcamp Java Developer");
+        System.out.println("====================================Divisor====================================");
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp - Java Developer");
+        bootcamp.setDescricao("Descrição: Bootcamp Java Developer");
         bootcamp.getConteudos().add(curso1);
         bootcamp.getConteudos().add(curso2);
         bootcamp.getConteudos().add(mentoria);
+
         Dev devCamila = new Dev();
         devCamila.setNome("Camila");
         devCamila.inscreverBootcamp(bootcamp);
@@ -42,6 +59,7 @@ public class Main {
         System.out.println("Conteúdos Concluídos Camila:" + devCamila.getConteudosConcluidos());
         System.out.println("XP:" + devCamila.calcularTotalXp());
         System.out.println("-------");
+
         Dev devJoao = new Dev();
         devJoao.setNome("Joao");
         devJoao.inscreverBootcamp(bootcamp);
@@ -52,7 +70,7 @@ public class Main {
         System.out.println("-");
         System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
         System.out.println("Conteúdos Concluidos João:" + devJoao.getConteudosConcluidos());
-        System.out.println("XP:" + devJoao.calcularTotalXp());*/
+        System.out.println("XP:" + devJoao.calcularTotalXp());
 
     }
 }
